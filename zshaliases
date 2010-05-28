@@ -1,0 +1,35 @@
+# command aliases
+alias ls='ls -G'
+alias tailf='tail -f'
+alias clonedb="rake db:test:clone_structure"
+alias ss="script/server"
+alias sg="script/generate"
+alias rdbm="rake db:migrate"
+alias rdbmt="rake db:migrate RAILS_ENV=test"
+alias sc="script/console"
+alias rate="rake test"
+alias sgm="script/generate migration"
+alias a="autotest --rails"
+alias rt="rake test"
+alias rlf="rake db:fixtures:load"
+alias prst="touch tmp/restart.txt"
+alias sdb="script/dbconsole"
+alias gpu="git push origin"
+alias gfo="git fetch origin"
+alias gmo="git merge origin/master"
+alias gfmo="git fetch origin && git merge origin/master"
+alias gpull="git pull --rebase"
+alias ru='rackup'
+alias rtf='rake test:functionals'
+alias rtu='rake test:units'
+alias rtfi='rake test:functionals test:integration'
+alias rti='rake test:integration'
+alias couch='couchdb > /dev/null &'
+alias uni='unicorn_rails -D -p 3000'
+alias httpdump='sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
+alias mate='mvim'
+alias h='host -t A $1'
+alias sos='showoff serve'
+alias sr='screen'
+
+
