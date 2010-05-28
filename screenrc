@@ -1,0 +1,7 @@
+fit
+sessionname builder
+startup_message off 
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%w%=%m/%d %c" 
+activity "activity: window ~%"`
