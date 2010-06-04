@@ -5,4 +5,4 @@ hardstatus on
 hardstatus alwayslastline
 hardstatus string "%w%=%m/%d %c" 
 activity "activity: window ~%"`
-defscrollback 1024
+defscrollback 8192
