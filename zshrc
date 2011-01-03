@@ -58,6 +58,11 @@ export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
 export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
 export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
 export PGOPTIONS='-c client_min_messages=WARNING'
+export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_HEAP_SLOTS_INCREMENT=1000000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=1000000000
+export RUBY_HEAP_FREE_MIN=500000
 
 if [ ! "$TERM" = "xterm-color" ]
 then
