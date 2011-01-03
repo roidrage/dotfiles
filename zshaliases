@@ -31,5 +31,5 @@ alias mate='mvim'
 alias h='host -t A $1'
 alias sos='showoff serve'
 alias sr='screen'
-
-
+alias otp='RAILS_ENV=production rake otp:display'
+alias vim='$HOME/Applications/Tools/MacVim.app/Contents/MacOS/Vim'
