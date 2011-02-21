@@ -50,7 +50,7 @@ _git_ps1()
    # path to top dir of git repository
    loc=${PWD%/$rel}
 
-   if current_it_status=$(git status | grep 'added to commit' 2> /dev/null); then
+   if current_it_status=$(git status | egrep '(added to commit|to be committed)' 2> /dev/null); then
      git_dirty=" ☠"
    else
      git_dirty=""
