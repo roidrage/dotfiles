@@ -16,6 +16,9 @@ sshec2() {
   ssh -i ~/.ssh/id_ec2_personal ubuntu@$1
 }
 
+sshec2basho() {
+  ssh -i ~/.ssh/id_ec2_mathias_basho.pub ubuntu@$1
+}
 # Prints the current directory into the terminal title
 chpwd() {
     [[ -t 1 ]] || return
@@ -115,4 +118,61 @@ rename()
       name=`echo $i | grep "$2" | sed "s,$2,,"`
       [ -n "$name" ] && mv $i $name
    done
+}
+
+fresh_riak()
+{
+  if [ ! -d ~/.riak ]
+  then
+    mkdir ~/.riak
+  fi
+  cd ~/.riak
+
+  riak_major_version="0.14"
+  riak_patch_version="2"
+  riak_version="${riak_major_version}.${riak_patch_version}"
+  if [ "$1" == "s" ]
+  then
+    riak_package="riak_search"
+    rel_folder="riaksearch"
+    download="riak-search/riak-search-${riak_major_version}/${riak_package}-${riak_version}.tar.gz"
+  else
+    riak_package="riak"
+    rel_folder="${riak_package}"
+    download="riak/riak-${riak_major_version}/${riak_package}-${riak_version}.tar.gz"
+  fi
+
+  if [ ! -d "build" ]
+  then
+    mkdir build
+  fi
+
+  if [ ! -d "install" ]
+  then
+    mkdir install
+  fi
+
+  if [ ! -f "${riak_package}-${riak_version}.tar.gz" ]
+  then
+    wget "http://downloads.basho.com/${download}"
+  fi
+
+  if [ ! -d "build/${riak_package}-${riak_version}" ]
+  then
+    cd build
+    tar xfz ~/.riak/${riak_package}-${riak_version}.tar.gz
+    cd ${riak_package}-${riak_version}
+    make rel
+  fi
+
+  cd ~/.riak
+  rm -rf install/${riak_package}-${riak_version}
+  cp -r build/${riak_package}-${riak_version}/rel/${rel_folder} install/${riak_package}-${riak_version}
+  riak_path="`pwd`/install/${riak_package}-${riak_version}/bin"
+
+  echo $PATH | grep $riak_path
+  if [ $? -ne 0 ]
+  then
+    export PATH="$riak_path:$PATH"
+  fi
 }
