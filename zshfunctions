@@ -122,6 +122,7 @@ rename()
 
 fresh_riak()
 {
+  oldpwd=`pwd`
   if [ ! -d ~/.riak ]
   then
     mkdir ~/.riak
@@ -170,9 +171,11 @@ fresh_riak()
   cp -r build/${riak_package}-${riak_version}/rel/${rel_folder} install/${riak_package}-${riak_version}
   riak_path="`pwd`/install/${riak_package}-${riak_version}/bin"
 
-  echo $PATH | grep $riak_path
+  echo $PATH | grep "${riak_path}"
   if [ $? -ne 0 ]
   then
-    export PATH="$riak_path:$PATH"
+    export PATH="${riak_path}:$PATH"
   fi
+
+  cd "${oldpwd}"
 }
