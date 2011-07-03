@@ -25,7 +25,6 @@ alias rtu='rake test:units'
 alias rtfi='rake test:functionals test:integration'
 alias rti='rake test:integration'
 alias rvmg='rvm gemset use'
-alias rvmgc="rvm gemset create"
 alias rvmgl="rvm gemset list"
 alias couch='couchdb > /dev/null &'
 alias uni='unicorn_rails -D -p 3000'

@@ -179,3 +179,11 @@ fresh_riak()
 
   cd "${oldpwd}"
 }
+
+rvmgc()
+{
+  if [ -n "$1" ]
+  then
+    rvm gemset create $1 && rvm gemset use $1
+  fi
+}
