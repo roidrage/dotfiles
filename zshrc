@@ -46,7 +46,7 @@ setopt auto_cd
 export HISTSIZE=500
 export HISTFILE=~/.zsh_history
 export SAVEHIST=500
-export PATH=/usr/local/brew/bin:/usr/local/brew/sbin:/usr/local/brew/share/python:$PATH:/usr/local/bin:/usr/local/mysql/bin:$JBOSS_HOME/bin:$HOME/bin:$GROOVY_HOME/bin:/opt/local/lib/postgresql82/bin:$HOME/bin/jruby/bin:/opt/local/sbin:/usr/local/git/bin:/usr/local/sbin:$MAGICK_HOME/bin:$HOME/.zsh/bin
+export PATH=/usr/local/brew/bin:/usr/local/brew/sbin:/usr/local/brew/share/python:$HOME/.rbenv/bin:$PATH:/usr/local/bin:/usr/local/mysql/bin:$JBOSS_HOME/bin:$HOME/bin:$GROOVY_HOME/bin:/opt/local/lib/postgresql82/bin:$HOME/bin/jruby/bin:/opt/local/sbin:/usr/local/git/bin:/usr/local/sbin:$MAGICK_HOME/bin:$HOME/.zsh/bin
 export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home/"
 export PATH=$JAVA_HOME/bin:$PATH
 export LC_CTYPE=en_US.UTF-8
@@ -58,14 +58,15 @@ export EC2_HOME=~/.ec2
 export PATH=$PATH:$EC2_HOME/bin
 export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
 export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
-export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
+export EC2_HOME="/usr/local/brew/Cellar/ec2-api-tools/1.4.2.2/jars"
+export EC2_AMITOOL_HOME="/usr/local/brew/Cellar/ec2-ami-tools/1.3-45758/jars"
+export DYLD_LIBRARY_PATH="/usr/local/mysql/lib"
 export PGOPTIONS='-c client_min_messages=WARNING'
-export RUBY_HEAP_MIN_SLOTS=1000000
-export RUBY_HEAP_SLOTS_INCREMENT=1000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=1000000000
-export RUBY_HEAP_FREE_MIN=500000
-
-# rvm-install added line:
-if [[ -s /Volumes/Users/pom/.rvm/scripts/rvm ]] ; then source /Volumes/Users/pom/.rvm/scripts/rvm ; fi
-rvmd() {rvm use $1 --default}
+# export RUBY_HEAP_MIN_SLOTS=1000000
+# export RUBY_HEAP_SLOTS_INCREMENT=1000000
+# export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+# export RUBY_GC_MALLOC_LIMIT=1000000000
+# export RUBY_HEAP_FREE_MIN=500000
+# 
+eval "$(rbenv init -)"
+[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc

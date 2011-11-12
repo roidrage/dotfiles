@@ -1,6 +1,6 @@
 # Sets the zsh prompt, includes rvm and git status.
 precmd() {
-  rvm=`~/.rvm/bin/rvm-prompt`
+  rvm=`rbenv version-name`
   git=`_git_ps1`
   if [[ -z $git ]]
   then

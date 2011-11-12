@@ -24,8 +24,6 @@ alias rtf='rake test:functionals'
 alias rtu='rake test:units'
 alias rtfi='rake test:functionals test:integration'
 alias rti='rake test:integration'
-alias rvmg='rvm gemset use'
-alias rvmgl="rvm gemset list"
 alias couch='couchdb > /dev/null &'
 alias uni='unicorn_rails -D -p 3000'
 alias httpdump='sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
@@ -39,3 +37,9 @@ alias vi='$EDITOR'
 alias t='python ~/.zsh/bin/t.py --task-dir ~/Dropbox/Tasks --list tasks'
 alias today='t -l today'
 alias to='today'
+
+alias bx="bundle exec"
+alias rbs="rbenv local system"
+alias rbl="rbenv local"
+alias rbsh="rbenv shims"
+alias nodesh='env NODE_NO_READLINE=1 rlwrap -p Green -S "node >>> " node'
